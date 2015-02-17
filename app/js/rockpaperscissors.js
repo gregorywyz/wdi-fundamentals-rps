@@ -43,28 +43,40 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     if (playerMove === "rock") {    // when player chose rock
-        if (computerMove === "rock") {
-            winner = "tie";
-        } else if (computerMove === "paper") {
-            winner = "computer";
-        } else {
-            winner = "player";
-        }
-    } else if (playerMove === "paper") {    // when player chose paper
-        if (computerMove === "rock") {
-            winner = "player";
-        } else if (computerMove == "paper") {
-            winner = "tie";
-        } else {
-            winner = "computer";
+        switch (computerMove) {
+            case "rock":
+                winner = "tie";
+                break;
+            case "paper":
+                winner = "computer";
+                break;
+            case "scissors":
+                winner = "player";
+                break;
+        }  
+    } else if (playerMove === "paper") {    // when player chose paper 
+        switch (computerMove) {
+            case "rock":
+                winner = "player";
+                break;
+            case "paper":
+                winner = "tie";
+                break;
+            case "scissors":
+                winner = "computer";
+                break;
         }
     } else {    // when player chose scissors
-        if (computerMove === "rock") {
-            winner = "computer";
-        } else if (computerMove === "paper") {
-            winner = "player";
-        } else {
-            winner = "tie";
+        switch (computerMove) {
+            case "rock":
+                winner = "computer";
+                break;
+            case "paper":
+                winner = "player";
+                break;
+            case "scissors":
+                winner = "tie";
+                break;
         }
     }
     return winner;
