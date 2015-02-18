@@ -104,6 +104,7 @@ function playToFive() {
                 console.log("The score is still: Player " + playerWins + " to " + "Computer " + computerWins + ".");
             }
     }
+    // Anounce the winner
     if (playerWins === 5) {
         console.log("Congrats! You won this match!");
     }
@@ -113,3 +114,31 @@ function playToFive() {
     return [playerWins, computerWins];
 }
 
+function playTo(x) {
+    console.log("Let's play Rock, Paper, Scissors! First to " + x + " wins!");
+    var playerWins = 0;
+    var computerWins = 0;
+    while (playerWins < x && computerWins < x) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+            if (getWinner(playerMove, computerMove) === "player") {
+                console.log("You chose " + playerMove + " and beat the Computer's " + computerMove + "!");
+                playerWins++;
+                console.log("The score is: Player " + playerWins + " to " + "Computer " + computerWins + ".");
+            } else if (getWinner(playerMove, computerMove) === "computer") {
+                console.log("You chose " + playerMove + " and lost to the Computer's " + computerMove + "!");
+                computerWins++;
+                console.log("The score is: Player " + playerWins + " to " + "Computer " + computerWins + ".");
+            } else {
+                console.log("You chose " + playerMove + " and tied the Computer's " + computerMove + "!");
+                console.log("The score is still: Player " + playerWins + " to " + "Computer " + computerWins + ".");
+            }
+    }
+    if (playerWins === x) {
+        console.log("Congrats! You won this match!");
+    }
+    if (computerWins === x) {
+        console.log("Bummer... The computer got the best of you on this match.");
+    }
+    return [playerWins, computerWins];
+}
